@@ -1,0 +1,90 @@
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+var aa=new Array(12);	
+var bb=new Array(12);	
+
+for (var i=0; i<12; i++) {
+	var j = i + 1;
+	aa[i] = D[j];
+ 	bb[i] = C[j];
+	//alert(aa[i] + ' = ' +  bb[i] ) ;
+}
+
+
+// Bar Chart Example
+var ctx = document.getElementById("visitors");
+var myLineChart = new Chart(ctx, {
+	height: '100',
+  	type: 'bar',
+ data: {
+    labels: aa,
+    datasets: [
+	  {
+	  label: 'Visitors',
+      yAxisID: 'A',
+	  backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      hoverBackgroundColor: "#FF6384",
+	  borderWidth: 1,
+      data: bb,
+      }
+	],
+  },
+  options: {
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 10
+        },
+        maxBarThickness: 25,
+      }],
+      yAxes: [
+		{
+		  id: 'A',
+          ticks: {
+	  	  min: 0,
+	  	  max: 100,
+          padding: 20,
+          },
+		  ticks: {
+          maxTicksLimit: 5
+		  },
+          gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+          }
+        }
+	  ],
+    },
+	
+    legend: {
+    display: false
+    },
+	
+	title: {
+	display: false,
+	fontSize: 16,
+	text: 'Reception'
+ 	},
+
+
+  }
+});

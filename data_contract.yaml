@@ -1,0 +1,30 @@
+contract_version: "1.0.0"
+project: AERIS / SIH26081
+status: fail_closed_until_readiness_passes
+allowed_sources:
+  observation: [IMD]
+  nwp_forecast: [ECMWF, NCMRWF]
+  reanalysis: [ERA5]
+variables:
+  precipitation_total_mm:
+    standard_unit: mm
+    allowed_roles: [NWP_FORECAST, OBSERVATION, REANALYSIS]
+    target_source: IMD
+    target_role: OBSERVATION
+time_fields:
+  forecast: [initialization_time, valid_time, lead_hours]
+  observation: [observation_time, availability_time]
+spatial_fields: [latitude, longitude, grid_id, spatial_resolution]
+forecast_horizons_hours: [24, 48, 72, 96]
+quality_rules:
+  reject_unknown_provenance: true
+  reject_duplicate_logical_forecasts: true
+  require_known_original_units: true
+  require_coordinates: true
+leakage_rules:
+  feature_information_time_lte_initialization_time: true
+  target_time_gt_initialization_time: true
+  fit_transformers_on_train_only: true
+  historical_skill_window: "[T-N days, T)"
+  chronological_splits_required: true
+  test_set_used_only_for_final_evaluation: true

@@ -1,0 +1,12 @@
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_ecmwf_common_025deg.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_ml_ready_2025_01.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_multimodel_common_025deg.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_multimodel_ready.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_ncmrwf_common_025deg.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_ncmrwf_initial_runs.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_rainfall_verification_june2020.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_training_2025_01.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\aeris_rainfall_metrics_june2020.csv
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\processed\ncmrwf_manifest.csv
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\observations\IMD\IMD_rain_2020.nc
+C:\Users\poorv\OneDrive\Desktop\AERIS\data\observations\IMD\imd_rain_june_2020.nc

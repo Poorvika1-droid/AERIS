@@ -1,0 +1,51 @@
+name: aeris-ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python dependencies
+        run: |
+          pip install -e packages/schemas -e packages/shared
+          pip install -r apps/api/requirements.txt
+          pip install pytest httpx
+
+      - name: Core logic tests (blending, health, regime)
+        env:
+          DATABASE_URL: sqlite:///data/demo/ci.db
+          AERIS_DATA_MODE: demonstration
+        run: |
+          mkdir -p data/demo
+          python -m pytest tests/test_blending_engine.py tests/test_health_regime.py -q --tb=short
+
+      - name: Fast API tests (no seed required)
+        env:
+          DATABASE_URL: sqlite:///data/demo/ci.db
+          AERIS_DATA_MODE: demonstration
+          AERIS_SKIP_SEED_TESTS: "1"
+        run: |
+          python -m pytest tests/test_api.py -q --tb=short
+
+  frontend-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install frontend dependencies
+        working-directory: apps/web
+        run: npm install
+
+      - name: TypeScript typecheck
+        working-directory: apps/web
+        run: node node_modules/typescript/bin/tsc --noEmit --skipLibCheck

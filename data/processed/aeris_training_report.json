@@ -1,0 +1,48 @@
+{
+  "record_count": 56,
+  "model_names": [
+    "NCMRWF",
+    "ECMWF"
+  ],
+  "init_dates": [
+    "2020-06-01 12:00:00",
+    "2020-06-05 12:00:00",
+    "2020-06-10 12:00:00",
+    "2020-06-11 12:00:00",
+    "2020-06-15 12:00:00",
+    "2020-06-20 12:00:00",
+    "2020-06-21 12:00:00"
+  ],
+  "lead_times": [
+    24,
+    48,
+    72,
+    96
+  ],
+  "feature_list": [
+    "model_flag",
+    "lead_h",
+    "forecast_mean_mm",
+    "observed_mean_mm",
+    "bias_mm",
+    "mae_mm",
+    "rmse_mm",
+    "correlation",
+    "month",
+    "rain_event_indicator",
+    "model_disagreement"
+  ],
+  "validation_strategy": "GroupKFold by init_time",
+  "baseline_metrics": {
+    "equal_weight_mae": 0.5,
+    "equal_weight_rmse": 0.5
+  },
+  "trust_engine_metrics": {
+    "cv_mae": 0.013708886171539763,
+    "cv_rmse": 0.02023733132934973,
+    "cv_r2": 0.7077015985361182
+  },
+  "training_time_seconds": 2.93,
+  "artifact_path": "C:\\Users\\poorv\\OneDrive\\Desktop\\AERIS\\models\\aeris_trust_engine.joblib",
+  "mode": "real_IMD"
+}

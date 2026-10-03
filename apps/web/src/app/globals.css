@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #070b14;
+  color: #e2e8f0;
+}
+
+body {
+  font-feature-settings: "ss01", "tnum";
+}
+
+.aeris-grid {
+  background-image: linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.maplibregl-popup-content {
+  background: #111b2e !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #1e3a4c;
+  font-size: 12px;
+}

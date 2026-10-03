@@ -1,0 +1,58 @@
+{
+  "model_type": "RandomForestRegressor",
+  "training_mode": "real_IMD",
+  "training_dataset": "data\\processed\\aeris_multimodel_ready.nc",
+  "features": [
+    "model_flag",
+    "lead_h",
+    "forecast_mean_mm",
+    "observed_mean_mm",
+    "bias_mm",
+    "mae_mm",
+    "rmse_mm",
+    "correlation",
+    "month",
+    "rain_event_indicator",
+    "model_disagreement"
+  ],
+  "target": "reliability",
+  "initialization_dates": [
+    "2020-06-01 12:00:00",
+    "2020-06-05 12:00:00",
+    "2020-06-10 12:00:00",
+    "2020-06-11 12:00:00",
+    "2020-06-15 12:00:00",
+    "2020-06-20 12:00:00",
+    "2020-06-21 12:00:00"
+  ],
+  "validation_strategy": "GroupKFold by init_time",
+  "training_timestamp": "2026-10-02T07:53:29.676874+00:00",
+  "metrics": {
+    "cv_mae": 0.013708886171539763,
+    "cv_rmse": 0.02023733132934973,
+    "cv_r2": 0.7077015985361182,
+    "model_summary": {
+      "NCMRWF": {
+        "mae_mm": 8.86143689538948,
+        "rmse_mm": 19.891048705512105,
+        "bias_mm": 2.8717288265628964,
+        "forecast_mean_mm": 9.397586643878475,
+        "observed_mean_mm": 6.525857817315582
+      },
+      "ECMWF": {
+        "mae_mm": 7.60768839372592,
+        "rmse_mm": 16.187239006541198,
+        "bias_mm": 1.1975898183909643,
+        "forecast_mean_mm": 7.723447635706544,
+        "observed_mean_mm": 6.525857817315582
+      }
+    }
+  },
+  "software": {
+    "python": "3.13.9",
+    "scikit_learn": "1.7.2",
+    "joblib": "1.5.2",
+    "xarray": "2025.10.1"
+  },
+  "artifact_path": "C:\\Users\\poorv\\OneDrive\\Desktop\\AERIS\\models\\aeris_trust_engine.joblib"
+}

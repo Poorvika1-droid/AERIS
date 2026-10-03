@@ -1,0 +1,223 @@
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+var param0 = "Annual";	
+var param1 = "Winter Season (Jan-Feb)";	
+var param2 = "Pre-Monsoon Season (Mar-May)";	
+var param3 = "Monsoon Season (Jun-Sep)";	
+var param4 = "Post-Monsoon Season (Oct-Dec)";	
+
+
+
+	var ctx = document.getElementById("chart_rainfall");
+	var myLineChart = new Chart(ctx, {
+	type: 'line',
+	data: {
+	labels: [
+	dy[1], dy[2], dy[3], dy[4], dy[5], dy[6], dy[7], dy[8], dy[9], dy[10], 
+	dy[11], dy[12], dy[13], dy[14], dy[15], dy[16], dy[17], dy[18], dy[19], dy[20], 
+	dy[21], dy[22], dy[23], dy[24], dy[25], dy[26], dy[27], dy[28], dy[29], dy[30],
+	dy[31], dy[32], dy[33], dy[34], dy[35], dy[36], dy[37], dy[38], dy[39], dy[40], 
+	dy[41], dy[42], dy[43], dy[44], dy[45], dy[46], dy[47], dy[48], dy[49], dy[50], 
+	dy[51], dy[52], dy[53], dy[54], dy[55], dy[56], dy[57], dy[58], dy[59], dy[60], 
+	dy[61], dy[62], dy[63], dy[64], dy[65], dy[66], dy[67], dy[68], dy[69], dy[70], 
+	dy[71], dy[72], dy[73], dy[74], dy[75], dy[76], dy[77], dy[78], dy[79], dy[80], 
+	dy[81], dy[82], dy[83], dy[84], dy[85], dy[86], dy[87], dy[88], dy[89], dy[90], 
+	dy[91], dy[92], dy[93], dy[94], dy[95], dy[96], dy[97], dy[98], dy[99], dy[100], 
+	dy[101], dy[102], dy[103], dy[104], dy[105], dy[106], dy[107], dy[108], dy[109], dy[110], 
+	dy[111], dy[112], dy[113], dy[114], dy[115], dy[116], dy[117], dy[118], dy[119], dy[120], 
+	dy[121], dy[122], dy[123], dy[124]], 
+	datasets: [
+	{
+	  label: param0,
+      lineTension: 0.3,
+      backgroundColor: "rgba(255, 99, 132, 0.1)",
+      borderColor: "rgba(255, 99, 132, 1)",
+	  borderWidth: 1,
+	  pointRadius: 0,
+	  data: [
+		d0[1], d0[2], d0[3], d0[4], d0[5], d0[6], d0[7], d0[8], d0[9], d0[10], 
+		d0[11], d0[12], d0[13], d0[14], d0[15], d0[16], d0[17], d0[18], d0[19], d0[20], 
+		d0[21], d0[22], d0[23], d0[24], d0[25], d0[26], d0[27], d0[28], d0[29], d0[30],
+		d0[31], d0[32], d0[33], d0[34], d0[35], d0[36], d0[37], d0[38], d0[39], d0[40], 
+		d0[41], d0[42], d0[43], d0[44], d0[45], d0[46], d0[47], d0[48], d0[49], d0[50], 
+		d0[51], d0[52], d0[53], d0[54], d0[55], d0[56], d0[57], d0[58], d0[59], d0[60], 
+		d0[61], d0[62], d0[63], d0[64], d0[65], d0[66], d0[67], d0[68], d0[69], d0[70], 
+		d0[71], d0[72], d0[73], d0[74], d0[75], d0[76], d0[77], d0[78], d0[79], d0[80], 
+		d0[81], d0[82], d0[83], d0[84], d0[85], d0[86], d0[87], d0[88], d0[89], d0[90], 
+		d0[91], d0[92], d0[93], d0[94], d0[95], d0[96], d0[97], d0[98], d0[99], d0[100], 
+		d0[101], d0[102], d0[103], d0[104], d0[105], d0[106], d0[107], d0[108], d0[109], d0[110], 
+		d0[111], d0[112], d0[113], d0[114], d0[115], d0[116], d0[117], d0[118], d0[119], d0[120],
+	  	d0[121], d0[122], d0[123], d0[124]], 
+	},
+	{
+	  label: param1,
+      lineTension: 0.3,
+      backgroundColor: "rgba(54, 162, 235, 0.1)",
+      borderColor: "rgba(54, 162, 235, 1)",
+	  borderWidth: 1,
+	  pointRadius: 0,
+	  data: [
+		win[1], win[2], win[3], win[4], win[5], win[6], win[7], win[8], win[9], win[10], 
+		win[11], win[12], win[13], win[14], win[15], win[16], win[17], win[18], win[19], win[20], 
+		win[21], win[22], win[23], win[24], win[25], win[26], win[27], win[28], win[29], win[30],
+		win[31], win[32], win[33], win[34], win[35], win[36], win[37], win[38], win[39], win[40], 
+		win[41], win[42], win[43], win[44], win[45], win[46], win[47], win[48], win[49], win[50], 
+		win[51], win[52], win[53], win[54], win[55], win[56], win[57], win[58], win[59], win[60], 
+		win[61], win[62], win[63], win[64], win[65], win[66], win[67], win[68], win[69], win[70], 
+		win[71], win[72], win[73], win[74], win[75], win[76], win[77], win[78], win[79], win[80], 
+		win[81], win[82], win[83], win[84], win[85], win[86], win[87], win[88], win[89], win[90], 
+		win[91], win[92], win[93], win[94], win[95], win[96], win[97], win[98], win[99], win[100], 
+		win[101], win[102], win[103], win[104], win[105], win[106], win[107], win[108], win[109], win[110], 
+		win[111], win[112], win[113], win[114], win[115], win[116], win[117], win[118], win[119], win[120],
+	  	win[121], win[122], win[123], win[124]], 
+    },
+	{
+	  label: param2,
+      lineTension: 0.3,
+      backgroundColor: "rgba(255, 159, 64, 0.1)",
+      borderColor: "rgba(255, 159, 64, 1)",
+	  borderWidth: 1,
+	  pointRadius: 0,
+	  data: [
+		d2[1], d2[2], d2[3], d2[4], d2[5], d2[6], d2[7], d2[8], d2[9], d2[10], 
+		d2[11], d2[12], d2[13], d2[14], d2[15], d2[16], d2[17], d2[18], d2[19], d2[20], 
+		d2[21], d2[22], d2[23], d2[24], d2[25], d2[26], d2[27], d2[28], d2[29], d2[30],
+		d2[31], d2[32], d2[33], d2[34], d2[35], d2[36], d2[37], d2[38], d2[39], d2[40], 
+		d2[41], d2[42], d2[43], d2[44], d2[45], d2[46], d2[47], d2[48], d2[49], d2[50], 
+		d2[51], d2[52], d2[53], d2[54], d2[55], d2[56], d2[57], d2[58], d2[59], d2[60], 
+		d2[61], d2[62], d2[63], d2[64], d2[65], d2[66], d2[67], d2[68], d2[69], d2[70], 
+		d2[71], d2[72], d2[73], d2[74], d2[75], d2[76], d2[77], d2[78], d2[79], d2[80], 
+		d2[81], d2[82], d2[83], d2[84], d2[85], d2[86], d2[87], d2[88], d2[89], d2[90], 
+		d2[91], d2[92], d2[93], d2[94], d2[95], d2[96], d2[97], d2[98], d2[99], d2[100], 
+		d2[101], d2[102], d2[103], d2[104], d2[105], d2[106], d2[107], d2[108], d2[109], d2[110], 
+		d2[111], d2[112], d2[113], d2[114], d2[115], d2[116], d2[117], d2[118], d2[119], d2[120],
+	  	d2[121], d2[122], d2[123], d2[124]], 
+    },
+	{
+	  label: param3,
+      lineTension: 0.3,
+      backgroundColor: "rgba(75, 192, 192, 0.1)",
+      borderColor: "rgba(75, 192, 192, 1)",
+	  borderWidth: 1,
+	  pointRadius: 0,
+	  data: [
+		d3[1], d3[2], d3[3], d3[4], d3[5], d3[6], d3[7], d3[8], d3[9], d3[10], 
+		d3[11], d3[12], d3[13], d3[14], d3[15], d3[16], d3[17], d3[18], d3[19], d3[20], 
+		d3[21], d3[22], d3[23], d3[24], d3[25], d3[26], d3[27], d3[28], d3[29], d3[30],
+		d3[31], d3[32], d3[33], d3[34], d3[35], d3[36], d3[37], d3[38], d3[39], d3[40], 
+		d3[41], d3[42], d3[43], d3[44], d3[45], d3[46], d3[47], d3[48], d3[49], d3[50], 
+		d3[51], d3[52], d3[53], d3[54], d3[55], d3[56], d3[57], d3[58], d3[59], d3[60], 
+		d3[61], d3[62], d3[63], d3[64], d3[65], d3[66], d3[67], d3[68], d3[69], d3[70], 
+		d3[71], d3[72], d3[73], d3[74], d3[75], d3[76], d3[77], d3[78], d3[79], d3[80], 
+		d3[81], d3[82], d3[83], d3[84], d3[85], d3[86], d3[87], d3[88], d3[89], d3[90], 
+		d3[91], d3[92], d3[93], d3[94], d3[95], d3[96], d3[97], d3[98], d3[99], d3[100], 
+		d3[101], d3[102], d3[103], d3[104], d3[105], d3[106], d3[107], d3[108], d3[109], d3[110], 
+		d3[111], d3[112], d3[113], d3[114], d3[115], d3[116], d3[117], d3[118], d3[119], d3[120],
+	  	d3[121], d3[122], d3[123], d3[124]], 
+    },
+	{
+	  label: param4,
+      lineTension: 0.3,
+      backgroundColor: "rgba(153, 102, 255, 0.1)",
+      borderColor: "rgba(153, 102, 255, 1)",
+	  borderWidth: 1,
+	  pointRadius: 0,
+	  data: [
+		d4[1], d4[2], d4[3], d4[4], d4[5], d4[6], d4[7], d4[8], d4[9], d4[10], 
+		d4[11], d4[12], d4[13], d4[14], d4[15], d4[16], d4[17], d4[18], d4[19], d4[20], 
+		d4[21], d4[22], d4[23], d4[24], d4[25], d4[26], d4[27], d4[28], d4[29], d4[30],
+		d4[31], d4[32], d4[33], d4[34], d4[35], d4[36], d4[37], d4[38], d4[39], d4[40], 
+		d4[41], d4[42], d4[43], d4[44], d4[45], d4[46], d4[47], d4[48], d4[49], d4[50], 
+		d4[51], d4[52], d4[53], d4[54], d4[55], d4[56], d4[57], d4[58], d4[59], d4[60], 
+		d4[61], d4[62], d4[63], d4[64], d4[65], d4[66], d4[67], d4[68], d4[69], d4[70], 
+		d4[71], d4[72], d4[73], d4[74], d4[75], d4[76], d4[77], d4[78], d4[79], d4[80], 
+		d4[81], d4[82], d4[83], d4[84], d4[85], d4[86], d4[87], d4[88], d4[89], d4[90], 
+		d4[91], d4[92], d4[93], d4[94], d4[95], d4[96], d4[97], d4[98], d4[99], d4[100], 
+		d4[101], d4[102], d4[103], d4[104], d4[105], d4[106], d4[107], d4[108], d4[109], d4[110], 
+		d4[111], d4[112], d4[113], d4[114], d4[115], d4[116], d4[117], d4[118], d4[119], d4[120],
+	  	d4[121], d4[122], d4[123], d4[124]], 
+    }
+	
+	],
+
+  },
+
+  options: {
+	responsive: true, 
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+		scaleLabel: {
+            display: true,
+            labelString: 'Year',
+			lineHeight: 2,
+			fontColor: 'black',
+			fontSize: 16
+          },
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 16
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+		  display: true,
+          drawBorder: true,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: true,
+	  fullWidth: true, 
+	  position: 'bottom'
+    },
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      intersect: false,
+      mode: 'index',
+      caretPadding: 10,
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return datasetLabel + ': ' + tooltipItem.yLabel + ' \u00B0C';
+        }
+      }
+    }
+  }
+});
+
+
+
+
