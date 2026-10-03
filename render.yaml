@@ -17,7 +17,7 @@ services:
       - key: SECRET_KEY
         value: aeris-sih-2026-demo-key
       - key: CORS_ORIGINS
-        value: "https://aeris-1-iy0y.onrender.com,http://localhost:3000"
+        value: "https://aeris-1-iy0y.onrender.com,https://aeris-t3ji.onrender.com,http://localhost:3000"
 
   - type: web
     name: aeris-web

@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     secret_key: str = "change-me-in-any-non-demo-environment"
     api_host: str = "0.0.0.0"
     api_port: int = 8000
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "https://aeris-1-iy0y.onrender.com,http://localhost:3000"
 
     database_url: str = DEFAULT_SQLITE_DB
     redis_url: str = "redis://localhost:6379/0"
