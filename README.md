@@ -373,6 +373,22 @@ No retraining per observation — meta-model retrained on schedule
 
 ---
 
+## 🚀 Live Demo
+
+| Service | URL |
+|---|---|
+| **Frontend (Web Console)** | https://aeris-1-iy0y.onrender.com |
+| **Backend (API)** | https://aeris-t3ji.onrender.com |
+| **API Docs (Swagger)** | https://aeris-t3ji.onrender.com/docs |
+
+**Login:** `demo@aeris.local` / `aeris-demo-2026`
+
+> After login, go to **Overview** and click **"Load / refresh demo data"** to seed all benchmark data.
+
+> ⚠️ Free tier — first load may take 30–60 seconds to wake up.
+
+---
+
 ## Quick Start
 
 ### Option 1 — Local SQLite (no services needed)
