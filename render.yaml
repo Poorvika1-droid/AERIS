@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: aeris-api
+    runtime: python
+    rootDir: apps/api
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./data/aeris.db
+      - key: AERIS_DATA_MODE
+        value: demonstration
+      - key: AERIS_ENV
+        value: demo
+      - key: AUTH_DISABLED
+        value: "true"
+      - key: SECRET_KEY
+        value: aeris-sih-2026-demo-key
+      - key: CORS_ORIGINS
+        value: "*"
