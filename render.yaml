@@ -18,3 +18,21 @@ services:
         value: aeris-sih-2026-demo-key
       - key: CORS_ORIGINS
         value: "*"
+
+  - type: web
+    name: aeris-web
+    runtime: node
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://aeris-t3ji.onrender.com
+      - key: NEXT_PUBLIC_WS_URL
+        value: wss://aeris-t3ji.onrender.com/ws
+      - key: NEXT_PUBLIC_DATA_MODE
+        value: demonstration
+      - key: PORT
+        value: "10000"
