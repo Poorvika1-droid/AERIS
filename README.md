@@ -389,6 +389,48 @@ No retraining per observation — meta-model retrained on schedule
 
 ---
 
+## 🔧 Changing Deployment URLs
+
+### Frontend API Configuration
+
+The frontend connects to the backend via the `API_BASE` URL. To change the backend URL:
+
+**Option 1 — Environment Variable (Recommended):**
+```bash
+# In apps/web/.env.local or Render environment variables
+NEXT_PUBLIC_API_URL=https://your-backend-url.com
+```
+
+**Option 2 — Hardcoded Default:**
+Edit `apps/web/src/lib/api.ts`:
+```typescript
+export const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://your-backend-url.com";
+```
+
+### Backend CORS Configuration
+
+If deploying to a new domain, update CORS settings in `apps/api/app/main.py`:
+
+```python
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://your-frontend-url.com", "http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+### Render Deployment Notes
+
+- **Frontend Service:** Deploy `apps/web` as a Next.js service
+- **Backend Service:** Deploy `apps/api` as a FastAPI service
+- **Environment Variables:** Set `NEXT_PUBLIC_API_URL` on frontend to point to backend URL
+- **Database:** Use Render PostgreSQL or external MySQL
+- **Redis:** Use Render Redis or external Redis for Celery queue
+
+---
+
 ## Quick Start
 
 ### Option 1 — Local SQLite (no services needed)
