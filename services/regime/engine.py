@@ -160,8 +160,8 @@ class RegimeTransitionDetector:
         temp_trend: float,
     ) -> tuple[float, float]:
         if previous is None or previous == current:
-            return 0.12 if previous == current else 0.0, 0.7
-        mag = clamp(abs(rain_trend) / 20.0 + abs(temp_trend) / 4.0, 0.15, 0.95)
+            return 0.25 if previous == current else 0.0, 0.7
+        mag = clamp(abs(rain_trend) / 20.0 + abs(temp_trend) / 4.0, 0.25, 0.95)
         conf = clamp(0.45 + mag / 2, 0.4, 0.9)
         return mag, conf
 

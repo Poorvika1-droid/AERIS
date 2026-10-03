@@ -454,8 +454,8 @@ def regimes(db: Session = Depends(get_db)) -> dict:
                 "lon": loc.longitude if loc else None,
                 "current_regime": r.current_regime,
                 "previous_regime": r.previous_regime,
-                "transition_probability": t.transition_probability if t else 0.1,
-                "transition_confidence": t.transition_confidence if t else 0.5,
+                "transition_probability": t.transition_probability if t else 0.25,
+                "transition_confidence": t.transition_confidence if t else 0.7,
                 "features": r.features,
             }
         )

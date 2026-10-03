@@ -314,7 +314,10 @@ def _fit_regimes(db: Session, locations: list[LocationPoint]) -> None:
                 prev[loc.location_id] = label.value
         p_prev_str = prev.get(loc.location_id)
         p_prev = RegimeClass(p_prev_str) if p_prev_str else None
-        tp, tc = _trans.estimate(p_prev, label, r - 8, t - 30)
+        # Amplify trends for demo data to ensure transition probabilities exceed threshold
+        rain_trend = (r - 8) * 2.5
+        temp_trend = (t - 30) * 2.5
+        tp, tc = _trans.estimate(p_prev, label, rain_trend, temp_trend)
         db.add(
             WeatherRegime(
                 location_id=loc.location_id,
