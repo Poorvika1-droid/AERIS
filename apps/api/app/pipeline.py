@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import logging
 import math
+import random
 import time
 import uuid
 from datetime import datetime, timedelta, timezone
@@ -13,7 +14,7 @@ from typing import Any
 import numpy as np
 from sqlalchemy.orm import Session
 
-from aeris_schemas import CANONICAL_UNITS, HealthStatus, LocationPoint, ModelType, Variable, WeightingStrategy
+from aeris_schemas import CANONICAL_UNITS, HealthStatus, LocationPoint, ModelType, RegimeClass, Variable, WeightingStrategy
 from aeris_shared.metrics import normalize_weights
 from services.blending import (
     CounterfactualRequest,
@@ -303,14 +304,23 @@ def _fit_regimes(db: Session, locations: list[LocationPoint]) -> None:
             temp_anomaly=t - 30,
             rain_anomaly=r - 8,
         )
-        p_prev = prev.get(loc.location_id)
-        tp, tc = _trans.estimate(None, label, r - 8, t - 30)
+        # Simulate previous regime for demo data to generate transition probabilities
+        regime_options = [RegimeClass.NORMAL, RegimeClass.MONSOON, RegimeClass.CONVECTIVE_RAIN, RegimeClass.HEAVY_RAIN, RegimeClass.HEATWAVE, RegimeClass.HIGH_WIND, RegimeClass.DRY_EXTREME]
+        if loc.location_id not in prev:
+            # Randomly assign a previous regime different from current for ~30% of locations
+            if random.random() < 0.3:
+                prev[loc.location_id] = random.choice([r for r in regime_options if r != label]).value
+            else:
+                prev[loc.location_id] = label.value
+        p_prev_str = prev.get(loc.location_id)
+        p_prev = RegimeClass(p_prev_str) if p_prev_str else None
+        tp, tc = _trans.estimate(p_prev, label, r - 8, t - 30)
         db.add(
             WeatherRegime(
                 location_id=loc.location_id,
                 valid_time=vt,
                 current_regime=label.value,
-                previous_regime=p_prev,
+                previous_regime=p_prev_str,
                 cluster_id=cid,
                 features=feat,
             )
@@ -320,7 +330,7 @@ def _fit_regimes(db: Session, locations: list[LocationPoint]) -> None:
                 RegimeTransition(
                     location_id=loc.location_id,
                     valid_time=vt,
-                    from_regime=p_prev or label.value,
+                    from_regime=p_prev_str or label.value,
                     to_regime=label.value,
                     transition_probability=tp,
                     transition_confidence=tc,
